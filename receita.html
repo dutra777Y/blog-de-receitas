@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Receita</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<button id="botaoTema" class="btn btn-dark botao-tema">
+    Tema escuro
+</button>
+
+<main class="container py-5">
+
+    <a href="index.html" class="btn btn-secondary mb-4">
+        voltar
+    </a>
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <img src="imagens/bolo.jpg"
+                 class="img-fluid rounded"
+                 id="imagemReceita">
+        </div>
+
+        <div class="col-md-6">
+
+            <h1 id="nomeReceita">
+                Bolo de Chocolate
+            </h1>
+
+            <p id="descricaoReceita">
+                Bolo fofinho com uma deliciosa cobertura de chocolate.
+            </p>
+
+            <p>
+                Tempo:
+                <span id="tempoReceita">45 minutos</span>
+            </p>
+
+            <p>
+                Categoria:
+                <span id="categoriaReceita">Doces</span>
+            </p>
+
+            <p>
+                Dificuldade:
+                <span id="dificuldadeReceita">
+                </span>
+                    
+                </span>
+            </p>
+
+        </div>
+
+    </div>
+
+    <h2>Ingredientes</h2>
+
+    <ul id="ingredientes">
+    <li>2 xícaras de farinha de trigo</li>
+    <li>1 xícara de açúcar</li>
+    <li>1 xícara de chocolate em pó</li>
+    <li>3 ovos</li>
+    <li>1 xícara de leite</li>
+    <li>1 colher de fermento</li>
+</ul>
+
+    <h2>Modo de preparo</h2>
+
+    <ol id="preparo">
+    <li>Misture os ovos e o açúcar.</li>
+    <li>Adicione o leite.</li>
+    <li>Adicione a farinha e o chocolate.</li>
+    <li>Acrescente o fermento.</li>
+    <li>Coloque a massa em uma forma.</li>
+    <li>Leve ao forno até assar.</li>
+</ol>
+
+    <section class="mt-5">
+        <h2>Comentários</h2>
+
+        <form id="formComentario">
+            <label for="nomeComentario" class="form-label">Nome</label>
+            <input type="text"
+                   id="nomeComentario"
+                   class="form-control mb-3"
+                   required>
+
+            <label for="textoComentario" class="form-label">Comentário</label>
+            <textarea id="textoComentario"
+                      class="form-control mb-3"
+                      rows="3"
+                      required></textarea>
+
+            <button type="submit" class="btn btn-primary">
+                Comentar
+            </button>
+        </form>
+
+        <div id="listaComentarios" class="mt-4"></div>
+    </section>
+
+</main>
+
+<script src="tema.js"></script>
+<script src="dados/receitas.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

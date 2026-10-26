@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Blog de Receitas</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <button id="botaoTema" class="btn btn-dark botao-tema">
+        Tema escuro
+    </button>
+
+    <header class="cabecalho text-white text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">
+             blog de Receitas
+            </h1>
+
+        </div>
+    </header>
+
+    <main class="container py-5">
+
+        <section class="text-center mb-4">
+            <h2 class="fw-bold">receitas</h2>
+
+            <p class="text-secondary">
+                clique em uma receita para ver os ingredientes e o modo de preparo.
+            </p>
+
+            <a href="cadastro.html" class="btn btn-primary">
+                Cadastrar receita
+            </a>
+        </section>
+
+        <section class="mb-4">
+            <label for="campoPesquisa" class="form-label fw-bold">
+                Pesquisar receita
+            </label>
+
+            <input
+                type="search"
+                id="campoPesquisa"
+                class="form-control"
+                placeholder="Digite o nome da receita"
+            >
+
+            <label for="filtroCategoria" class="form-label fw-bold mt-3">
+                Filtrar por categoria
+            </label>
+
+            <select id="filtroCategoria" class="form-select">
+                <option value="todas">Todas</option>
+                <option value="doces">Doces</option>
+                <option value="massas">Massas</option>
+                <option value="saladas">Saladas</option>
+                <option value="carnes">Carnes</option>
+                <option value="bebidas">Bebidas</option>
+                <option value="salgados">Salgados</option>
+            </select>
+        </section>
+
+        <section>
+            <p id="mensagemSemReceitas"
+               class="alert alert-warning text-center d-none">
+                Nenhuma receita encontrada.
+            </p>
+
+            <div class="row g-4" id="listaReceitas">
+
+                <div class="col-12 col-sm-6 col-lg-4 receita"
+                     data-nome="bolo de chocolate"
+                     data-categoria="doces">
+
+                    <a href="receita.html?id=1"
+                       class="text-decoration-none">
+
+                        <article class="card h-100 shadow-sm card-receita">
+
+                            <img
+                                src="imagens/bolo.jpeg"
+                                class="card-img-top"
+                                alt="Bolo de Chocolate"
+                            >
+
+                            <div class="card-body">
+                                <h3 class="card-title h5">
+                                    Bolo de Chocolate
+                                </h3>
+
+                                <p class="card-text text-secondary">
+                                    Bolo com cobertura de chocolate.
+                                </p>
+                            </div>
+
+                        </article>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 receita"
+                     data-nome="lasanha"
+                     data-categoria="massas">
+
+                    <a href="receita.html?id=2"
+                       class="text-decoration-none">
+
+                        <article class="card h-100 shadow-sm card-receita">
+
+                            <img
+                                src="imagens/lasanha.jpeg"
+                                class="card-img-top"
+                                alt="Lasanha"
+                            >
+
+                            <div class="card-body">
+                                <h3 class="card-title h5">Lasanha</h3>
+
+                                <p class="card-text text-secondary">
+                                    Lasanha tradicional.
+                                </p>
+                            </div>
+
+                        </article>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 receita"
+                     data-nome="salada caesar"
+                     data-categoria="saladas">
+
+                    <a href="receita.html?id=3"
+                       class="text-decoration-none">
+
+                        <article class="card h-100 shadow-sm card-receita">
+
+                            <img
+                                src="imagens/salada.jpeg"
+                                class="card-img-top"
+                                alt="Salada Caesar"
+                            >
+
+                            <div class="card-body">
+                                <h3 class="card-title h5">
+                                    Salada Caesar
+                                </h3>
+
+                                <p class="card-text text-secondary">
+                                    Uma salada da hora de mais.
+                                </p>
+                            </div>
+
+                        </article>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 receita"
+                     data-nome="panqueca de carne"
+                     data-categoria="massas">
+
+                    <a href="receita.html?id=4"
+                       class="text-decoration-none">
+
+                        <article class="card h-100 shadow-sm card-receita">
+
+                            <img
+                                src="imagens/panqueca.jpeg"
+                                class="card-img-top"
+                                alt="Panqueca de Carne"
+                            >
+
+                            <div class="card-body">
+                                <h3 class="card-title h5">
+                                    Panqueca de Carne
+                                </h3>
+
+                                <p class="card-text text-secondary">
+                                    Panquecas de carne e molho caseiro.
+                                </p>
+                            </div>
+
+                        </article>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 receita"
+                     data-nome="pizza caseira"
+                     data-categoria="massas">
+
+                    <a href="receita.html?id=5"
+                       class="text-decoration-none">
+
+                        <article class="card h-100 shadow-sm card-receita">
+
+                            <img
+                                src="imagens/pizza.jpeg"
+                                class="card-img-top"
+                                alt="Pizza Caseira"
+                            >
+
+                            <div class="card-body">
+                                <h3 class="card-title h5">
+                                    Pizza Caseira
+                                </h3>
+
+                                <p class="card-text text-secondary">
+                                    Pizza com molho de tomate e queijo.
+                                </p>
+                            </div>
+
+                        </article>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 receita"
+                     data-nome="hamburguer artesanal"
+                     data-categoria="carnes">
+
+                    <a href="receita.html?id=6"
+                       class="text-decoration-none">
+
+                        <article class="card h-100 shadow-sm card-receita">
+
+                            <img
+                                src="imagens/hamburguer.jpeg"
+                                class="card-img-top"
+                                alt="Hambúrguer Artesanal"
+                            >
+
+                            <div class="card-body">
+                                <h3 class="card-title h5">
+                                    Hambúrguer Artesanal
+                                </h3>
+
+                                <p class="card-text text-secondary">
+                                    Hambúrguer suculento.
+                                </p>
+                            </div>
+
+                        </article>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 receita"
+                     data-nome="suco natural"
+                     data-categoria="bebidas">
+
+                    <a href="receita.html?id=7"
+                       class="text-decoration-none">
+
+                        <article class="card h-100 shadow-sm card-receita">
+
+                            <img
+                                src="imagens/suco.jpeg"
+                                class="card-img-top"
+                                alt="Suco Natural"
+                            >
+
+                            <div class="card-body">
+                                <h3 class="card-title h5">
+                                    Suco Natural
+                                </h3>
+
+                                <p class="card-text text-secondary">
+                                    Bebida preparada com frutas.
+                                </p>
+                            </div>
+
+                        </article>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 receita"
+                     data-nome="strogonoff de frango"
+                     data-categoria="carnes">
+
+                    <a href="receita.html?id=8"
+                       class="text-decoration-none">
+
+                        <article class="card h-100 shadow-sm card-receita">
+
+                            <img
+                                src="imagens/strogonoff.jpeg"
+                                class="card-img-top"
+                                alt="Strogonoff de Frango"
+                            >
+
+                            <div class="card-body">
+                                <h3 class="card-title h5">
+                                    Strogonoff de Frango
+                                </h3>
+
+                                <p class="card-text text-secondary">
+                                    Strogonoff com arroz e batata palha.
+                                </p>
+                            </div>
+
+                        </article>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 receita"
+                     data-nome="pudim de leite"
+                     data-categoria="doces">
+
+                    <a href="receita.html?id=9"
+                       class="text-decoration-none">
+
+                        <article class="card h-100 shadow-sm card-receita">
+
+                            <img
+                                src="imagens/pudim.jpeg"
+                                class="card-img-top"
+                                alt="Pudim de Leite"
+                            >
+
+                            <div class="card-body">
+                                <h3 class="card-title h5">
+                                    Pudim de Leite
+                                </h3>
+
+                                <p class="card-text text-secondary">
+                                    Pudim com calda de caramelo.
+                                </p>
+                            </div>
+
+                        </article>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 receita"
+                     data-nome="torta de frango"
+                     data-categoria="salgados">
+
+                    <a href="receita.html?id=10"
+                       class="text-decoration-none">
+
+                        <article class="card h-100 shadow-sm card-receita">
+
+                            <img
+                                src="imagens/torta.jpeg"
+                                class="card-img-top"
+                                alt="Torta de Frango"
+                            >
+
+                            <div class="card-body">
+                                <h3 class="card-title h5">
+                                    Torta de Frango
+                                </h3>
+
+                                <p class="card-text text-secondary">
+                                    Torta salgada de frango desfiado.
+                                </p>
+                            </div>
+
+                        </article>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 receita"
+                     data-nome="polenta"
+                     data-categoria="salgados">
+
+                    <a href="receita.html?id=11"
+                       class="text-decoration-none">
+
+                        <article class="card h-100 shadow-sm card-receita">
+
+                            <img
+                                src="imagens/polenta.jpeg"
+                                class="card-img-top"
+                                alt="Polenta"
+                            >
+
+                            <div class="card-body">
+                                <h3 class="card-title h5">
+                                    Polenta
+                                </h3>
+
+                                <p class="card-text text-secondary">
+                                    Polenta simples.
+                                </p>
+                            </div>
+
+                        </article>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 receita"
+                     data-nome="mousse de chocolate"
+                     data-categoria="doces">
+
+                    <a href="receita.html?id=12"
+                       class="text-decoration-none">
+
+                        <article class="card h-100 shadow-sm card-receita">
+
+                            <img
+                                src="imagens/mousse.jpeg"
+                                class="card-img-top"
+                                alt="Mousse de Chocolate"
+                            >
+
+                            <div class="card-body">
+                                <h3 class="card-title h5">
+                                    Mousse de Chocolate
+                                </h3>
+
+                                <p class="card-text text-secondary">
+                                    Mousse de chocolate.
+                                </p>
+                            </div>
+
+                        </article>
+                    </a>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="tema.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
