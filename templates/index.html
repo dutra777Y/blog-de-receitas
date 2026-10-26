@@ -13,7 +13,7 @@
         rel="stylesheet"
     >
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
@@ -90,7 +90,7 @@
                         <article class="card h-100 shadow-sm card-receita">
 
                             <img
-                                src="imagens/bolo.jpeg"
+                                src="{{ url_for('static', filename='imagens/bolo.jpeg') }}"
                                 class="card-img-top"
                                 alt="Bolo de Chocolate"
                             >
@@ -432,7 +432,7 @@
 
     </main>
 
-    <script src="tema.js"></script>
-    <script src="script.js"></script>
+<script src="{{ url_for('static', filename='tema.js') }}"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
