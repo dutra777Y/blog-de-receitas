@@ -1,14 +1,14 @@
 import sqlite3
 import json
+from repositorio_base import RepositorioBase
 
-
-class RepositorioReceitas:
+class RepositorioReceitas(RepositorioBase):
     def __init__(self, caminho_banco="receitas.db"):
-        self.caminho_banco = caminho_banco
+        self.__caminho_banco = caminho_banco
         self.criar_tabela()
 
     def criar_tabela(self):
-        with sqlite3.connect(self.caminho_banco) as conexao:
+        with sqlite3.connect(self.__caminho_banco) as conexao:
             conexao.execute("""
                 CREATE TABLE IF NOT EXISTS receitas (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -24,7 +24,7 @@ class RepositorioReceitas:
             """)
 
     def salvar(self, receita):
-        with sqlite3.connect(self.caminho_banco) as conexao:
+        with sqlite3.connect(self.__caminho_banco) as conexao:
             conexao.execute("""
                 INSERT INTO receitas (
                     nome, descricao, imagem, categoria,
@@ -42,7 +42,7 @@ class RepositorioReceitas:
             ))
 
     def listar(self):
-        with sqlite3.connect(self.caminho_banco) as conexao:
+        with sqlite3.connect(self.__caminho_banco) as conexao:
             conexao.row_factory = sqlite3.Row
             resultado = conexao.execute("SELECT * FROM receitas")
             return [dict(linha) for linha in resultado.fetchall()]
