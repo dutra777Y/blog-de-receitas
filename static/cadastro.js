@@ -5,6 +5,11 @@ formCadastro.addEventListener("submit", function(evento) {
 
     const arquivoImagem = document.getElementById("imagem").files[0];
 
+    if (!arquivoImagem) {
+        alert("Escolha uma imagem.");
+        return;
+    }
+
     if (arquivoImagem.size > 1000000) {
         alert("Escolha uma imagem com menos de 1 MB.");
         return;
@@ -12,21 +17,18 @@ formCadastro.addEventListener("submit", function(evento) {
 
     const ingredientes = document.getElementById("ingredientesCadastro").value
         .split("\n")
-        .filter(function(ingrediente) {
-            return ingrediente.trim() !== "";
-        });
+        .map(item => item.trim())
+        .filter(item => item !== "");
 
     const preparo = document.getElementById("preparoCadastro").value
         .split("\n")
-        .filter(function(passo) {
-            return passo.trim() !== "";
-        });
+        .map(item => item.trim())
+        .filter(item => item !== "");
 
     const leitorImagem = new FileReader();
 
-    leitorImagem.onload = function() {
+    leitorImagem.onload = async function() {
         const novaReceita = {
-            id: Date.now(),
             nome: document.getElementById("nome").value.trim(),
             descricao: document.getElementById("descricao").value.trim(),
             imagem: leitorImagem.result,
@@ -37,13 +39,27 @@ formCadastro.addEventListener("submit", function(evento) {
             preparo: preparo
         };
 
-        const receitasCadastradas = JSON.parse(localStorage.getItem("receitasCadastradas")) || [];
+        try {
+            const resposta = await fetch("/api/receitas", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(novaReceita)
+            });
 
-        receitasCadastradas.push(novaReceita);
-        localStorage.setItem("receitasCadastradas", JSON.stringify(receitasCadastradas));
+            const resultado = await resposta.json();
 
-        alert("Receita cadastrada com sucesso!");
-        window.location.href = "index.html";
+            if (!resposta.ok) {
+                throw new Error(resultado.erro || "Erro ao cadastrar.");
+            }
+
+            alert("Receita cadastrada com sucesso!");
+            window.location.href = "/";
+
+        } catch (erro) {
+            alert("Erro: " + erro.message);
+        }
     };
 
     leitorImagem.readAsDataURL(arquivoImagem);
